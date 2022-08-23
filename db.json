@@ -1,0 +1,302 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "UPT Vector 3",
+      "brand": "United Parachute Technologies",
+      "description": "The Vector 3 and Micron from UPT are the most comprehensive, most feature rich and best-selling containers on the market. With a wide range of options to suit every user and every budget, we’ll make sure that your container is truly tailored to you.",
+      "stock": 50,
+      "price": "2500.00",
+      "discount": "0",
+      "specs": "W: 30.5cm L: 30.5cm H: 30.5cm",
+      "sizes": "",
+      "images": [
+        "ajkbfdksf3.png",
+        "ajkbfdksf.png",
+        "ajkbfdksf2.png",
+        "ajkbfdksf4.png"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "SE Student UPT",
+      "brand": "United Parachute Technologies",
+      "description": "The Vector SE comes loaded with features, including: Magnetic Riser Covers, Hand Deployment bag, Metal D Handle, Reserve Pin Window, and our Skyhook RSL.",
+      "stock": 23,
+      "price": "2100.00",
+      "discount": "0",
+      "specs": "W: 28.5cm L: 21.5cm H: 40.5cm",
+      "sizes": "",
+      "images": [
+        "ajkbfdksf3.png",
+        "ajkbfdksf.png",
+        "ajkbfdksf2.png",
+        "ajkbfdksf4.png"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Sigma Container Tandem System",
+      "brand": "United Parachute Technologies",
+      "description": "Your brand new Sigma, or Micro Sigma, Tandem system comes loaded features, including: adjustable student harness, Magnetic Riser Covers, adjustable container harness, Double Wide Legpads, Retractable Release Handles, Spectra Reserve Ripcord, Reserve Pin Window, and our Skyhook RSL.",
+      "stock": 2,
+      "price": "5500.00",
+      "discount": "0",
+      "specs": "W: 40.5cm L: 50.5cm H: 60.5cm",
+      "sizes": "",
+      "images": [
+        "ajkbfdksf3.png",
+        "ajkbfdksf.png",
+        "ajkbfdksf2.png",
+        "ajkbfdksf4.png"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Sigma Main Tandem Canopy",
+      "brand": "United Parachute Technologies",
+      "description": "Made by Performance Designs exclusively for United Parachute Technologies, is the preferred choice for use with Sigma and Micro Sigma Tandem Containers.",
+      "stock": 11,
+      "price": "4500.00",
+      "discount": "0",
+      "specs": "W: 30.2cm L: 31.4cm H: 33.7cm",
+      "sizes": "",
+      "images": [
+        "ajkbfdksf3.png",
+        "ajkbfdksf.png",
+        "ajkbfdksf2.png",
+        "ajkbfdksf4.png"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Performance Designs Valkyrie",
+      "brand": "United Parachute Technologies",
+      "description": "Recently field research has revealed shocking info:  an overwhelming majority of high-performance canopy pilot skydivers enjoy spending time in freefall.  Niche market, but we gave it a go.  The Valkyrie’s no one-trick pony (it’s not a pony at all; we don’t sell ponies), built only for comps and sub-terminal openings.  Take it to terminal, and like everyone who’s jumped it before you, be rendered speechless by its superb openings. You’ll find your voice again when someone asks you how fun it was to fly.  Whether you’re filming tandems all day, dedicated to perfecting your swoop, or flocking with your friends, you are going to seriously LOVE flying this canopy.",
+      "stock": 99,
+      "price": "3750.00",
+      "discount": "0",
+      "specs": "W: 32.5cm L: 31.5cm H: 30.5cm",
+      "sizes": "",
+      "images": [
+        "ajkbfdksf3.png",
+        "ajkbfdksf.png",
+        "ajkbfdksf2.png",
+        "ajkbfdksf4.png"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Sigma SR340 or SR370 Tandem Reserve Canopy",
+      "brand": "United Parachute Technologies",
+      "description": "VR-360 in the Sigma/Micro Sigma tandem system for the following reasons. The specifics of Sigma/Micro Sigma tandem operation can be affected by many components.",
+      "stock": 69,
+      "price": "4250.00",
+      "discount": "0",
+      "specs": "W: 36.9cm L: 36.9cm H: 36.9cm",
+      "sizes": "",
+      "images": [
+        "ajkbfdksf3.png",
+        "ajkbfdksf.png",
+        "ajkbfdksf2.png",
+        "ajkbfdksf4.png"
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "phone": "12345679",
+      "email": "123456789@gmail.com",
+      "billingaddress": {
+        "zipcode": "1234",
+        "city": "lolcity",
+        "address": "lolgade 123"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Han jolo",
+      "phone": "+22 22 45 89 10",
+      "email": "thejolo@gmail.com",
+      "billingaddress": {
+        "zipcode": "1234",
+        "city": "lolcity",
+        "address": "lolgade 123"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Marli Us",
+      "phone": "+12 69 69 69 69",
+      "email": "cooldude@shitmail.com",
+      "billingaddress": {
+        "zipcode": "6969",
+        "city": "awesomecity",
+        "address": "beststreet"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Jane Doe",
+      "phone": "12345679",
+      "email": "123456789@gmail.com",
+      "billingaddress": {
+        "zipcode": "1234",
+        "city": "lolcity",
+        "address": "lolgade 123"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Human person",
+      "phone": "+00 12345679",
+      "email": "123456789@gmail.com",
+      "billingaddress": {
+        "zipcode": "1234",
+        "city": "human city",
+        "address": "real street"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Mark suckysuck",
+      "phone": "+00 88 88 88 88",
+      "email": "overlord@evil.com",
+      "billingaddress": {
+        "zipcode": "Andromeda",
+        "city": "PA-99-N2",
+        "address": "Alien street 11"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Sherlock Holmes",
+      "phone": "+44 20 7224 3688",
+      "email": "sherlock@holmes.com",
+      "billingaddress": {
+        "zipcode": "NW1 6XE",
+        "city": "London",
+        "address": "221B baker street"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Bruce Wayne",
+      "phone": "12345679",
+      "email": "123456789@gmail.com",
+      "billingaddress": {
+        "zipcode": "1234",
+        "city": "lolcity",
+        "address": "lolgade 123"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Real human",
+      "phone": "12345679",
+      "email": "email@gmail.com",
+      "billingaddress": {
+        "zipcode": "1234",
+        "city": "lolcity",
+        "address": "lolgade 123"
+      }
+    },
+    {
+      "id": 10,
+      "name": "John Doe",
+      "phone": "12345679",
+      "email": "123456789@gmail.com",
+      "billingaddress": {
+        "zipcode": "1234",
+        "city": "lolcity",
+        "address": "lolgade 123"
+      }
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "customerId": 1,
+      "order_number": "00000000001",
+      "totalsum": 14000,
+      "products": [
+        {
+          "productId": "1",
+          "productAmount": "2",
+          "productPrice": 2500,
+          "productName": "UPT Vector 3"
+        },
+        {
+          "productId": "4",
+          "productAmount": "4",
+          "productPrice": 3000,
+          "productName": "Sigma Main Tandem Canopy"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "customerId": 5,
+      "order_number": "00000000002",
+      "totalsum": 2500,
+      "products": [
+        {
+          "productId": "1",
+          "productAmount": "1",
+          "productPrice": 2500,
+          "productName": "UPT Vector 3"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "customerId": 8,
+      "order_number": "00000000003",
+      "totalsum": 9999,
+      "products": [
+        {
+          "productId": "3",
+          "productAmount": "4",
+          "productPrice": 3333,
+          "productName": "Sigma Container Tandem System"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "customerId": 3,
+      "order_number": "00000000004",
+      "totalsum": 75000,
+      "products": [
+        {
+          "productId": "6",
+          "productAmount": "10",
+          "productPrice": 4000,
+          "productName": "Sigma SR340 or SR370 Tandem Reserve Canopy"
+        },
+        {
+          "productId": "5",
+          "productAmount": "10",
+          "productPrice": 3500,
+          "productName": "Performance Designs Valkyrie"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "customerId": 4,
+      "order_number": "00000000005",
+      "totalsum": 11000,
+      "products": [
+        {
+          "productId": "3",
+          "productAmount": "2",
+          "productPrice": 5500,
+          "productName": "Sigma Container Tandem System"
+        }
+      ]
+    }
+  ]
+}
