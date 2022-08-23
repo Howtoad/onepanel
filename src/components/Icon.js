@@ -1,5 +1,5 @@
 const Icon = ({ icon, css }) => {
-  return <i className={icon}></i>;
+  return icon ;
 };
 
 export default Icon;

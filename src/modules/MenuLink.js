@@ -1,11 +1,12 @@
 import Icon from "../components/Icon";
 import Paragraph from "../components/Paragraph";
 
-const MenuLink = ({ menuText, menuIcon, menuCss, pCss, iconCss }) => {
+const MenuLink = ({ menuName, menuIcon, menuCss, pCss, iconCss }) => {
+  console.log(menuName)
   return (
     <div className={menuCss}>
-      <Icon menuIcon={menuIcon} css={iconCss} />
-      <Paragraph text={menuText} css={pCss} />
+      <Icon icon={menuIcon} css={iconCss} />
+      <Paragraph text={menuName} css={pCss} />
     </div>
   );
 };

@@ -7,26 +7,26 @@ const Nav = () => {
   const pageLinks = [
     {
       pageName: "Products",
-      pageIcon: "fa-solid fa-box-open",
+      pageIcon: <AiOutlineDropbox size={32} />,
     },
     {
       pageName: "Costumers",
-      pageIcon: "fa-solid fa-circle-user",
+      pageIcon: <BsPerson size={32} />,
     },
     {
       pageName: "Orders",
-      pageIcon: "fa-solid fa-table-list",
+      pageIcon: <FaRegListAlt size={32} />,
     },
   ];
 
   const styles = {
-    menuButton: "",
-    menuParagraph: "",
-    menuIcon: "",
+    menuButton: "bg-opGray flex p-2 gap-1 w-full justify-center",
+    menuParagraph: "text-sm text-center leading-8",
+    menuIcon: "h-5 w-5",
   };
 
   return (
-    <section className="xd">
+    <section className="bg-opGrayBg w-full flex p-4 gap-3.5 absolute bottom-0">
       {pageLinks.map((object) => (
         <MenuLink
           key={object.pageName}
