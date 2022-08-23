@@ -7,15 +7,15 @@ const Nav = () => {
   const pageLinks = [
     {
       pageName: "Products",
-      pageIcon: <AiOutlineDropbox />,
+      pageIcon: "fa-solid fa-box-open",
     },
     {
       pageName: "Costumers",
-      pageIcon: <BsPerson />,
+      pageIcon: "fa-solid fa-circle-user",
     },
     {
       pageName: "Orders",
-      pageIcon: <FaRegListAlt />,
+      pageIcon: "fa-solid fa-table-list",
     },
   ];
 
@@ -26,7 +26,7 @@ const Nav = () => {
   };
 
   return (
-    <section className="">
+    <section className="xd">
       {pageLinks.map((object) => (
         <MenuLink
           key={object.pageName}
