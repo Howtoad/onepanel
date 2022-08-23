@@ -2,7 +2,6 @@ import Icon from "../components/Icon";
 import Paragraph from "../components/Paragraph";
 
 const MenuLink = ({ menuName, menuIcon, menuCss, pCss, iconCss }) => {
-  console.log(menuName)
   return (
     <div className={menuCss}>
       <Icon icon={menuIcon} css={iconCss} />
