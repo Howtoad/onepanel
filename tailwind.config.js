@@ -1,4 +1,4 @@
-const { getQueriesForElement } = require('@testing-library/react');
+const { getQueriesForElement } = require("@testing-library/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -11,7 +11,6 @@ module.exports = {
         opGrayBg: "#D9D9D9",
         opRed: "#DA0000",
         opSalmon: "#FB8383",
-
       },
     },
   },
