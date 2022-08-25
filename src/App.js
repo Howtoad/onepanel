@@ -4,7 +4,7 @@ import Nav from "./templates/Nav";
 import Costumers from "./pages/Costumers";
 import Orders from "./pages/Orders";
 import Products from "./pages/Products";
-import Login from "./pages/Login";
+import Login from "./modules/Login";
 import Home from "./pages/Home";
 
 function App() {
