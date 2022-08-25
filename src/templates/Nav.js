@@ -8,14 +8,17 @@ const Nav = () => {
     {
       pageName: "Products",
       pageIcon: <AiOutlineDropbox size={32} />,
+      Link: "/",
     },
     {
       pageName: "Costumers",
       pageIcon: <BsPerson size={32} />,
+      link: "/costumers",
     },
     {
       pageName: "Orders",
       pageIcon: <FaRegListAlt size={32} />,
+      link: "/orders",
     },
   ];
 
@@ -26,12 +29,13 @@ const Nav = () => {
   };
 
   return (
-    <section className="bg-opGrayBg w-full flex p-4 gap-3.5 absolute bottom-0">
+    <section className="bg-opGrayBg w-full flex p-4 gap-3.5 fixed bottom-0">
       {pageLinks.map((object) => (
         <MenuLink
           key={object.pageName}
           menuIcon={object.pageIcon}
           menuName={object.pageName}
+          menuLink={object.Link}
           menuCss={styles.menuButton}
           pCss={styles.menuParagraph}
           iconCss={styles.menuIcon}
