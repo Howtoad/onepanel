@@ -1,7 +1,5 @@
-import Login from "../modules/Login";
-
 const Orders = () => {
-  return <Login />;
+  return;
 };
 
 export default Orders;
