@@ -1,3 +1,6 @@
+import { RiEditBoxLine } from "react-icons/ri";
+import { TbTrash } from "react-icons/tb";
+import Button from "../components/Button";
 import Heading from "../components/Heading";
 import Paragraph from "../components/Paragraph";
 
@@ -20,7 +23,20 @@ const ProductCard = ({
           css={headingCss}
         />
         <Paragraph text={paragraphText} css={paragraphCss} />
-        <div className={btnContainerCss}></div>
+        <div className="flex justify-between">
+          <Button
+            buttonIcon={<RiEditBoxLine size={30} className="m-auto" />}
+            buttonText="Edit"
+            css="bg-opGray w-20"
+            textCss="text-bg font-semibold"
+          />
+          <Button
+            buttonIcon={<TbTrash size={30} className="m-auto" />}
+            buttonText="Delete"
+            css="bg-opRed w-20"
+            textCss="text-bg font-semibold"
+          />
+        </div>
       </section>
     </>
   );
