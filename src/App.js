@@ -4,6 +4,7 @@ import Nav from "./templates/Nav";
 import Costumers from "./pages/Costumers";
 import Orders from "./pages/Orders";
 import Products from "./pages/Products";
+import Login from "./pages/Login";
 import Home from "./pages/Home";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/costumers" element={<Costumers />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
