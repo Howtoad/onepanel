@@ -1,8 +1,8 @@
-const Button = ({ buttonText, buttonIcon, css }) => {
+const Button = ({ buttonText, buttonIcon, css, textCss }) => {
   return (
     <button className={css}>
       {buttonIcon}
-      {buttonText}
+      <p className={textCss}>{buttonText}</p>
     </button>
   );
 };
