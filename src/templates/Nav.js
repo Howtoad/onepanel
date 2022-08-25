@@ -8,17 +8,17 @@ const Nav = () => {
     {
       pageName: "Products",
       pageIcon: <AiOutlineDropbox size={32} />,
-      Link: "/",
+      link: "productList",
     },
     {
       pageName: "Costumers",
       pageIcon: <BsPerson size={32} />,
-      link: "/costumers",
+      link: "costumers",
     },
     {
       pageName: "Orders",
       pageIcon: <FaRegListAlt size={32} />,
-      link: "/orders",
+      link: "orders",
     },
   ];
 
@@ -35,7 +35,7 @@ const Nav = () => {
           key={object.pageName}
           menuIcon={object.pageIcon}
           menuName={object.pageName}
-          menuLink={object.Link}
+          menuLink={object.link}
           menuCss={styles.menuButton}
           pCss={styles.menuParagraph}
           iconCss={styles.menuIcon}
