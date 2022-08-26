@@ -8,7 +8,7 @@ export default function useFetch(API) {
   useEffect(
     function () {
       (async function () {
-        fetch("http://localhost:3001/products", {
+        fetch(API, {
           headers: {
             authorization: "Bearer " + token,
           },
