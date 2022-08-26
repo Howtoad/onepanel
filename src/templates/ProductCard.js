@@ -14,6 +14,7 @@ const ProductCard = ({
   headingCss,
   paragraphCss,
   cardCss,
+  editCard,
 }) => {
   return (
     <>
@@ -26,20 +27,24 @@ const ProductCard = ({
         />
         <Paragraph text={paragraphText} css={paragraphCss} />
         <div className="flex justify-between">
-          <Link to={"/product/" + productID}>
+          {editCard && (
+            <Link to={"/product/" + productID}>
+              <Button
+                buttonIcon={<RiEditBoxLine size={30} className="m-auto" />}
+                buttonText="Edit"
+                css="bg-opGray w-20"
+                textCss="text-bg font-semibold"
+              />
+            </Link>
+          )}
+          {editCard && (
             <Button
-              buttonIcon={<RiEditBoxLine size={30} className="m-auto" />}
-              buttonText="Edit"
-              css="bg-opGray w-20"
+              buttonIcon={<TbTrash size={30} className="m-auto" />}
+              buttonText="Delete"
+              css="bg-opRed w-20"
               textCss="text-bg font-semibold"
             />
-          </Link>
-          <Button
-            buttonIcon={<TbTrash size={30} className="m-auto" />}
-            buttonText="Delete"
-            css="bg-opRed w-20"
-            textCss="text-bg font-semibold"
-          />
+          )}
         </div>
       </section>
     </>
