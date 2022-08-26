@@ -2,7 +2,7 @@ import useFetch from "../customHooks/useFetch";
 import ProductCard from "../templates/ProductCard";
 
 const styles = {
-  card: "bg-opGrayBg p-1.5 border-solid border-black border w-44 flex flex-col",
+  card: "bg-opGrayBg p-1.5 border-solid border-black border w-44 flex flex-col min-h-[300px]",
   image: "m-auto mb-auto",
   heading:
     "text-xl font-semibold mx-auto max-w-max overflow-hidden leading-7 max-h-14",
@@ -27,13 +27,21 @@ const ProductList = () => {
                 }
                 headingText={product.name}
                 paragraphText={product.description}
+                productID={product.id}
                 imageCss={styles.image}
                 headingCss={styles.heading}
                 paragraphCss={styles.paragraph}
                 cardCss={styles.card}
+                editCard="True"
               />
             );
           })}
+        <ProductCard
+          key="add"
+          image="./images/akar-icons_circle-plus.png"
+          imageCss="m-auto"
+          cardCss={styles.card}
+        />
       </section>
     </>
   );
