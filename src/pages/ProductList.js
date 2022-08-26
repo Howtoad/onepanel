@@ -18,11 +18,12 @@ const ProductList = () => {
       <section className="grid grid-cols-2 p-1.5 gap-y-2 gap-x-1">
         {data[0] &&
           data.map((product) => {
-            console.log(product);
             return (
               <ProductCard
                 key={product.id}
-                image={product.images[0]}
+                image={
+                  "./images/product_" + product.id + "/" + product.images[0]
+                }
                 headingText={product.name}
                 paragraphText={product.description}
                 imageCss={styles.image}
