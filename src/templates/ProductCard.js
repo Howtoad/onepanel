@@ -15,6 +15,14 @@ const ProductCard = ({
   paragraphCss,
   cardCss,
   editCard,
+  productPrice,
+  productDiscount,
+  priceCss,
+  discountCss,
+  exampleCardCss,
+  buttonCss,
+  buttonText,
+  buttonTextCss,
 }) => {
   return (
     <>
@@ -44,6 +52,37 @@ const ProductCard = ({
               css="bg-opRed w-20"
               textCss="text-bg font-semibold"
             />
+          )}
+
+          {!editCard && (
+            <>
+              <div className={exampleCardCss}>
+                {(productDiscount !== "0" && productDiscount && (
+                  <>
+                    <Paragraph
+                      text={"£" + productPrice}
+                      css={priceCss + " " + discountCss}
+                    />
+                    <Paragraph
+                      text={productDiscount && "£" + productDiscount}
+                      css={priceCss}
+                    />
+                  </>
+                )) || (
+                  <Paragraph
+                    text={productDiscount && "£" + productPrice}
+                    css={priceCss}
+                  />
+                )}
+              </div>
+              {!editCard && (
+                <Button
+                  css={buttonCss}
+                  buttonText={buttonText}
+                  textCss={buttonTextCss}
+                />
+              )}
+            </>
           )}
         </div>
       </section>
