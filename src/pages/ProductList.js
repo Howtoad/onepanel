@@ -27,6 +27,7 @@ const ProductList = () => {
                 }
                 headingText={product.name}
                 paragraphText={product.description}
+                productID={product.id}
                 imageCss={styles.image}
                 headingCss={styles.heading}
                 paragraphCss={styles.paragraph}
