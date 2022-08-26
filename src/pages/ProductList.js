@@ -5,7 +5,7 @@ const styles = {
   card: "bg-opGrayBg p-1.5 border-solid border-black border w-44 flex flex-col",
   image: "m-auto mb-auto",
   heading:
-    "text-xl font-semibold mx-auto max-w-max overflow-hidden leading-7 h-14",
+    "text-xl font-semibold mx-auto max-w-max overflow-hidden leading-7 max-h-14",
   paragraph: "mx-auto max-w-max text-base overflow-hidden leading-5 h-10",
 };
 
