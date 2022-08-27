@@ -1,5 +1,5 @@
-import Order from "../modules/Order";
 import useFetch from "../customHooks/useFetch";
+import Order from "../modules/Order";
 
 const Orders = () => {
   const { data } = useFetch("http://localhost:3001/orders", {
