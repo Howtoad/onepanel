@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import Input from "../components/Input";
 import useFetch from "../customHooks/useFetch";
 import ProductCard from "../templates/ProductCard";
 
@@ -44,6 +45,9 @@ const Product = () => {
           buttonTextCss={styles.buttonText}
         />
       )}
+      <section>
+        <Input label="Name" inputCss="" labelCss="" pCss="" />
+      </section>
     </>
   );
 };
