@@ -9,7 +9,6 @@ const Costumers = () => {
     <section>
       {data[0] &&
         data.map((customer) => {
-          console.log(customer);
           return (
             <Customer
               customerID={customer.id}
