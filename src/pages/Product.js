@@ -19,7 +19,9 @@ const Product = () => {
     discount: "line-through text-gray-500",
     example: "mt-4 mr-4",
     button: "bg-opGreen h-[30px] w-[90px] my-auto",
-    buttonText: "",
+    label: "flex max-w-[350px] mx-auto my-2 border border-black solid ",
+    input: "w-full bg-opGrayBg pl-2",
+    labelText: "w-32 ml-2",
   };
 
   return (
@@ -46,7 +48,42 @@ const Product = () => {
         />
       )}
       <section>
-        <Input label="Name" inputCss="" labelCss="" pCss="" />
+        <Input
+          label="Name"
+          inputCss={styles.input}
+          labelCss={styles.label}
+          pCss={styles.labelText}
+        />
+        <Input
+          label="Price"
+          inputCss={styles.input}
+          labelCss={styles.label}
+          pCss={styles.labelText}
+        />
+        <Input
+          label="Discount"
+          inputCss={styles.input}
+          labelCss={styles.label}
+          pCss={styles.labelText}
+        />
+        <Input
+          label="Description"
+          inputCss={styles.input}
+          labelCss={styles.label}
+          pCss={styles.labelText}
+        />
+        <Input
+          label="Stock"
+          inputCss={styles.input}
+          labelCss={styles.label}
+          pCss={styles.labelText}
+        />
+        <Input
+          label="Specs"
+          inputCss={styles.input}
+          labelCss={styles.label}
+          pCss={styles.labelText}
+        />
       </section>
     </>
   );
