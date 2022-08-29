@@ -7,13 +7,13 @@ const Orders = () => {
   });
 
   return (
-    <section>
+    <section className="grid gap-y-2">
       {data[0] &&
         data.map((order) => {
           console.log(order);
           return (
             <Order
-              orderid={order.id}
+              orderid={order.order_number}
               price={order.totalsum}
               country={order.country}
               name={order.name}
