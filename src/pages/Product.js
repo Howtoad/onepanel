@@ -1,14 +1,19 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Input from "../components/Input";
 import useFetch from "../customHooks/useFetch";
 import ProductCard from "../templates/ProductCard";
+import Select from "react-dropdown-select";
 
 const Product = () => {
   const { id } = useParams();
   const { data } = useFetch("http://localhost:3001/products?id=" + id, {
     headers: { authorization: "Bearer " + "1234" },
   });
-  console.log(data);
+
+  const [values, setValues] = useState("");
+  console.log(values);
+
   const styles = {
     card: "bg-opGrayBg p-1.5 border-solid border-black border w-44 flex flex-col min-h-[300px] mx-auto mt-12",
     image: "m-auto mb-auto",
@@ -84,6 +89,36 @@ const Product = () => {
           labelCss={styles.label}
           pCss={styles.labelText}
         />
+        <div className="w-[136px]">
+          <Select
+            options={[
+              {
+                size: "S",
+              },
+              {
+                size: "M",
+              },
+              {
+                size: "L",
+              },
+              {
+                size: "XL",
+              },
+              {
+                size: "XXL",
+              },
+            ]}
+            onChange={(values) => setValues(values)}
+            multi={true}
+            dropdownPosition="bottom"
+            direction="lrt"
+            searchable={false}
+            searchBy="size"
+            labelField="size"
+            valueField="size"
+            keepSelectedInList={true}
+          />
+        </div>
       </section>
     </>
   );
