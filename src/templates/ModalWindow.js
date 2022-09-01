@@ -2,6 +2,7 @@ import { motion, useAnimationControls } from "framer-motion";
 import { useEffect, useCallback, useState } from "react";
 import Paragraph from "../components/Paragraph";
 import useFetch from "../customHooks/useFetch";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const ModalWindow = ({
   showModalWindow,
@@ -78,9 +79,9 @@ const ModalWindow = ({
   }, []);
 
   const styles = {
-    button: "max-w-max max-h-max bg-gray-500 rounded m-1 p-1 text-xl",
-    labelCss: "text-sm leading-4 capitalize px-1",
+    labelCss: "text-sm leading-4 capitalize px-1 h-5",
     valueCss: "text-sm bg-white max-w-max leading-4 capitalize px-1",
+    productCss: "mb-1.5 flex",
   };
 
   return (
@@ -111,32 +112,28 @@ const ModalWindow = ({
         initial="hidden"
         animate={contentControls}
       >
-        <p className="text-black text-center text-2xl p-8 text-bold">
+        <p className="text-black text-center text-2xl p-2 text-bold">
           {data && (
             <section>
-              <div className="flex">
+              <div className={styles.productCss}>
                 <Paragraph text={"Ord.Nr"} css={styles.labelCss} />
                 <Paragraph text={data.order_number} css={styles.valueCss} />
               </div>
-              <div className="flex">
+              <div className={styles.productCss}>
                 <Paragraph text={"Name"} css={styles.labelCss} />
                 <Paragraph text={data.name} css={styles.valueCss} />
               </div>
-              <div className="flex">
+              <div className={styles.productCss}>
                 <Paragraph text={"Address"} css={styles.labelCss} />
                 <Paragraph text={data.address} css={styles.valueCss} />
               </div>
-              <div className="flex">
-                <Paragraph text={"Phone #"} css={styles.labelCss} />
-                <Paragraph text={data.phone} css={styles.valueCss} />
-              </div>
-              <div className="flex">
+              <div className={styles.productCss}>
                 <Paragraph text={"Country"} css={styles.labelCss} />
                 <Paragraph text={data.country} css={styles.valueCss} />
               </div>
               {data.products.map((product) => {
                 return (
-                  <div className="flex">
+                  <div className={styles.productCss}>
                     <Paragraph text={"Product"} css={styles.labelCss} />
                     <Paragraph
                       text={product.productName}
@@ -146,23 +143,21 @@ const ModalWindow = ({
                       text={"x" + product.productAmount}
                       css={styles.labelCss}
                     />
-                    <Paragraph text={"Price"} css={styles.labelCss} />
                   </div>
                 );
               })}
-              <div className="flex">
+              <div className={styles.productCss}>
+                <Paragraph text={"Price"} css={styles.labelCss} />
                 <Paragraph text={data.totalsum} css={styles.valueCss} />
               </div>
             </section>
           )}
         </p>
-        <div className="flex p-2 justify-end w-full">
-          <button
-            className={styles.button}
+        <div className="flex p-2 justify-center w-full">
+          <MdKeyboardArrowDown
+            size={32}
             onClick={() => setShowModalWindow(false)}
-          >
-            Ok
-          </button>
+          />
         </div>
       </motion.div>
     </>
