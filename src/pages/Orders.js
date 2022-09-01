@@ -10,7 +10,6 @@ const Orders = () => {
     <section className="grid gap-y-2">
       {data[0] &&
         data.map((order) => {
-          console.log(order);
           return (
             <Order
               orderid={order.order_number}
