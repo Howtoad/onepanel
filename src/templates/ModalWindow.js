@@ -14,6 +14,7 @@ const ModalWindow = ({
   const { data } = useFetch("http://localhost:3001/orders/" + keyId, {
     headers: { authorization: "Bearer " + "1234" },
   });
+
   //default animation
   const ContainerAnimation = {
     hidden: {
@@ -78,6 +79,8 @@ const ModalWindow = ({
 
   const styles = {
     button: "max-w-max max-h-max bg-gray-500 rounded m-1 p-1 text-xl",
+    labelCss: "text-sm leading-4 capitalize px-1",
+    valueCss: "text-sm bg-white max-w-max leading-4 capitalize px-1",
   };
 
   return (
@@ -101,7 +104,7 @@ const ModalWindow = ({
         aria-modal="true"
         role="alertdialog"
         aria-hidden={ariaHidden}
-        className="m-auto w72 h-80 z-10 bg-white absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 justify-between flex-col rounded-md"
+        className="m-auto min-w-[306px] h-80 z-10 bg-opGrayBg absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 justify-between flex-col rounded-md"
         variants={
           (modalContentAnimation && modalContentAnimation) || ContentAnimation
         }
@@ -111,29 +114,29 @@ const ModalWindow = ({
         <p className="text-black text-center text-2xl p-8 text-bold">
           {data && (
             <section>
-              <div>
+              <div className="flex">
                 <Paragraph text={"Ord.Nr"} css={styles.labelCss} />
                 <Paragraph text={data.order_number} css={styles.valueCss} />
               </div>
-              <div>
+              <div className="flex">
                 <Paragraph text={"Name"} css={styles.labelCss} />
                 <Paragraph text={data.name} css={styles.valueCss} />
               </div>
-              <div>
+              <div className="flex">
                 <Paragraph text={"Address"} css={styles.labelCss} />
                 <Paragraph text={data.address} css={styles.valueCss} />
               </div>
-              <div>
+              <div className="flex">
                 <Paragraph text={"Phone #"} css={styles.labelCss} />
                 <Paragraph text={data.phone} css={styles.valueCss} />
               </div>
-              <div>
+              <div className="flex">
                 <Paragraph text={"Country"} css={styles.labelCss} />
                 <Paragraph text={data.country} css={styles.valueCss} />
               </div>
               {data.products.map((product) => {
                 return (
-                  <div>
+                  <div className="flex">
                     <Paragraph text={"Product"} css={styles.labelCss} />
                     <Paragraph
                       text={product.productName}
@@ -144,13 +147,12 @@ const ModalWindow = ({
                       css={styles.labelCss}
                     />
                     <Paragraph text={"Price"} css={styles.labelCss} />
-                    <Paragraph
-                      text={product.productPrice}
-                      css={styles.valueCss}
-                    />
                   </div>
                 );
               })}
+              <div className="flex">
+                <Paragraph text={data.totalsum} css={styles.valueCss} />
+              </div>
             </section>
           )}
         </p>
