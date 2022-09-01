@@ -7,7 +7,7 @@ const Costumers = () => {
   });
   return (
     <section>
-      {data[0] &&
+      {data &&
         data.map((customer) => {
           return (
             <Customer
