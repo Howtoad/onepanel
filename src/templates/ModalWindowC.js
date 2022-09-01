@@ -4,7 +4,7 @@ import Paragraph from "../components/Paragraph";
 import useFetch from "../customHooks/useFetch";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-const ModalWindow = ({
+const ModalWindowC = ({
   showModalWindow,
   setShowModalWindow,
   modalContainerAnimation,
@@ -81,7 +81,7 @@ const ModalWindow = ({
   const styles = {
     labelCss: "text-sm leading-4 capitalize px-1 h-5",
     valueCss: "text-sm bg-white max-w-max leading-4 capitalize px-1",
-    productCss: "mb-1.5 flex",
+    customerCss: "mb-1.5 flex",
   };
 
   return (
@@ -115,38 +115,23 @@ const ModalWindow = ({
         <p className="text-black text-center text-2xl p-2 text-bold">
           {data && (
             <section>
-              <div className={styles.productCss}>
+              <div className={styles.customerCss}>
                 <Paragraph text={"Ord.Nr"} css={styles.labelCss} />
                 <Paragraph text={data.order_number} css={styles.valueCss} />
               </div>
-              <div className={styles.productCss}>
+              <div className={styles.customerCss}>
                 <Paragraph text={"Name"} css={styles.labelCss} />
                 <Paragraph text={data.name} css={styles.valueCss} />
               </div>
-              <div className={styles.productCss}>
+              <div className={styles.customerCss}>
                 <Paragraph text={"Address"} css={styles.labelCss} />
                 <Paragraph text={data.address} css={styles.valueCss} />
               </div>
-              <div className={styles.productCss}>
+              <div className={styles.customerCss}>
                 <Paragraph text={"Country"} css={styles.labelCss} />
                 <Paragraph text={data.country} css={styles.valueCss} />
               </div>
-              {data.products.map((product) => {
-                return (
-                  <div className={styles.productCss}>
-                    <Paragraph text={"Product"} css={styles.labelCss} />
-                    <Paragraph
-                      text={product.productName}
-                      css={styles.valueCss}
-                    />
-                    <Paragraph
-                      text={"x" + product.productAmount}
-                      css={styles.labelCss}
-                    />
-                  </div>
-                );
-              })}
-              <div className={styles.productCss}>
+              <div className={styles.customerCss}>
                 <Paragraph text={"Price"} css={styles.labelCss} />
                 <Paragraph text={data.totalsum} css={styles.valueCss} />
               </div>
@@ -164,4 +149,4 @@ const ModalWindow = ({
   );
 };
 
-export default ModalWindow;
+export default ModalWindowC;

@@ -12,6 +12,7 @@ const Costumers = () => {
           return (
             <Customer
               customerID={customer.id}
+              keyId={customer.id}
               name={customer.name}
               phonenr={customer.phone}
               address={customer.billingaddress.address}
