@@ -119,9 +119,10 @@ const Product = () => {
               labelField="size"
               valueField="size"
               keepSelectedInList={true}
+              contentRenderer={({ props, state, methods }) => <p>Sizes</p>}
             />
           </div>
-          <label htmlFor="image" className="ml-1 h-[36px] text-sm">
+          <label htmlFor="image" className="ml-3 h-[36px] text-sm">
             Primary image
           </label>
           <select name="image" id="image" className="h-[36px]">
