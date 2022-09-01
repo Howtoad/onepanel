@@ -98,6 +98,7 @@ const ModalWindowC = ({
         initial="hidden"
         animate={containerControls}
         onClick={(e) => {
+          console.log(e.target);
           e.target === e.currentTarget && setShowModalWindow(false);
         }}
       ></motion.section>

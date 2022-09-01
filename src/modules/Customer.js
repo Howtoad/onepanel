@@ -28,11 +28,17 @@ const Customer = ({ customerID, name, phonenr, address, keyId }) => {
     valueCss: "truncate text-sm pl-1",
   };
   return (
-    <section className="flex divide-x-2 divide-black bg-opGrayBg mb-2 justify-between">
-      <Paragraph text={"ID: " + customerID} css={styles.valueCss} />
-      <Paragraph text={name} css={styles.valueCss} />
-      <Paragraph text={address} css={styles.valueCss} />
-      <Paragraph text={phonenr} css={styles.valueCss} />
+    <>
+      <section
+        className="flex divide-x-2 divide-black bg-opGrayBg mb-2 justify-between"
+        onClick={() => setShowModalWindow(true)}
+      >
+        <Paragraph text={"ID: " + customerID} css={styles.valueCss} />
+        <Paragraph text={name} css={styles.valueCss} />
+        <Paragraph text={address} css={styles.valueCss} />
+        <Paragraph text={phonenr} css={styles.valueCss} />
+      </section>
+
       <ModalWindowC
         showModalWindow={showModalWindow}
         setShowModalWindow={setShowModalWindow}
@@ -40,7 +46,7 @@ const Customer = ({ customerID, name, phonenr, address, keyId }) => {
         modalContentAnimation={modalContentAnimation}
         keyId={"customers/" + keyId}
       />
-    </section>
+    </>
   );
 };
 
