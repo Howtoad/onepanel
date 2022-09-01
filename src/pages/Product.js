@@ -53,7 +53,7 @@ const Product = () => {
           buttonTextCss={styles.buttonText}
         />
       )}
-      <section>
+      <section className="p-3">
         <Input
           label="Name"
           inputCss={styles.input}
@@ -90,35 +90,50 @@ const Product = () => {
           labelCss={styles.label}
           pCss={styles.labelText}
         />
-        <div className="w-[136px]">
-          <Select
-            options={[
-              {
-                size: "S",
-              },
-              {
-                size: "M",
-              },
-              {
-                size: "L",
-              },
-              {
-                size: "XL",
-              },
-              {
-                size: "XXL",
-              },
-            ]}
-            onChange={(values) => setValues(values)}
-            multi={true}
-            dropdownPosition="bottom"
-            direction="lrt"
-            searchable={false}
-            searchBy="size"
-            labelField="size"
-            valueField="size"
-            keepSelectedInList={true}
-          />
+        <div className="flex flex-row">
+          <div className="w-[136px] h-[36px]">
+            <Select
+              options={[
+                {
+                  size: "S",
+                },
+                {
+                  size: "M",
+                },
+                {
+                  size: "L",
+                },
+                {
+                  size: "XL",
+                },
+                {
+                  size: "XXL",
+                },
+              ]}
+              onChange={(values) => setValues(values)}
+              multi={true}
+              dropdownPosition="bottom"
+              direction="lrt"
+              searchable={false}
+              searchBy="size"
+              labelField="size"
+              valueField="size"
+              keepSelectedInList={true}
+            />
+          </div>
+          <label htmlFor="image" className="ml-1 h-[36px] text-sm">
+            Primary image
+          </label>
+          <select name="image" id="image" className="h-[36px]">
+            {data &&
+              data[0].images.map((image) => {
+                return (
+                  <option key={image} value={image}>
+                    {image}
+                  </option>
+                );
+              })}
+          </select>
         </div>
       </section>
     </>
