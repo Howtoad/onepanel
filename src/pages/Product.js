@@ -13,6 +13,7 @@ const Product = () => {
 
   const [values, setValues] = useState("");
   console.log(values);
+  console.log(data);
 
   const styles = {
     card: "bg-opGrayBg p-1.5 border-solid border-black border w-44 flex flex-col min-h-[300px] mx-auto mt-12",
@@ -31,7 +32,7 @@ const Product = () => {
 
   return (
     <>
-      {data[0] && (
+      {data && (
         <ProductCard
           key={data[0].id}
           image={"../images/product_" + data[0].id + "/" + data[0].images[0]}
