@@ -12,11 +12,13 @@ const Orders = () => {
         data.map((order) => {
           return (
             <Order
+              keyId={order.id}
               orderid={order.order_number}
               price={order.totalsum}
               country={order.country}
               name={order.name}
               address={order.address}
+              
             />
           );
         })}
