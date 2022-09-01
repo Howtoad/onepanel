@@ -109,7 +109,7 @@ const ModalWindow = ({
         animate={contentControls}
       >
         <p className="text-black text-center text-2xl p-8 text-bold">
-          {data[0] && (
+          {data && (
             <section>
               <div>
                 <Paragraph text={"Ord.Nr"} css={styles.labelCss} />

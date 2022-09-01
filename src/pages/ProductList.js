@@ -17,7 +17,7 @@ const ProductList = () => {
   return (
     <>
       <section className="grid grid-cols-2 p-1.5 gap-y-2 gap-x-1 mb-20">
-        {data[0] &&
+        {data &&
           data.map((product) => {
             return (
               <ProductCard

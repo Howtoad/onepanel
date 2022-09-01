@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import TokenContext from "../context/TokenContext";
 
 export default function useFetch(API) {
-  const [data, setData] = useState({});
+  const [data, setData] = useState();
   const { token } = useContext(TokenContext);
 
   useEffect(

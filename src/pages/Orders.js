@@ -8,7 +8,7 @@ const Orders = () => {
 
   return (
     <section className="grid gap-y-2">
-      {data[0] &&
+      {data &&
         data.map((order) => {
           return (
             <Order
@@ -18,7 +18,6 @@ const Orders = () => {
               country={order.country}
               name={order.name}
               address={order.address}
-              
             />
           );
         })}
