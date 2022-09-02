@@ -41,13 +41,14 @@ const Product = () => {
   };
 
   useEffect(() => {
-    data && setPName(data[0].name);
-    data && setPPrice(data[0].price);
-    data && setPDiscount(data[0].discount);
-    data && setPDesc(data[0].description);
-    data && setPStock(data[0].stock);
-    data && setPSpecs(data[0].specs);
-    data && setPSizes(data[0].sizes);
+    data && data[0] && setPName(data[0].name);
+    data && data[0] && setPPrice(data[0].price);
+    data && data[0] && setPDiscount(data[0].discount);
+    data && data[0] && setPDesc(data[0].description);
+    data && data[0] && setPStock(data[0].stock);
+    data && data[0] && setPSpecs(data[0].specs);
+    data && data[0] && setPSizes(data[0].sizes);
+    data && data[0] && setPImgs(data[0].images);
   }, [data]);
 
   const styles = {
@@ -72,8 +73,9 @@ const Product = () => {
   const [pStock, setPStock] = useState(undefined);
   const [pSpecs, setPSpecs] = useState(undefined);
   const [pSizes, setPSizes] = useState(undefined);
+  const [pImgs, setPImgs] = useState(undefined);
 
-  const productData = (data && data[0]) || {
+  const productData = (data && data[0] && data[0]) || {
     name: pName,
     description: pDesc,
     stock: pStock,
@@ -83,6 +85,7 @@ const Product = () => {
     sizes: pSizes,
     images: [""],
   };
+  console.log(productData);
 
   return (
     <>
@@ -110,7 +113,7 @@ const Product = () => {
       />
 
       <section className="p-3">
-        {data && (
+        {data && data[0] && (
           <Input
             label="Name"
             inputCss={styles.input}
@@ -196,14 +199,13 @@ const Product = () => {
             Primary image
           </label>
           <select name="image" id="image" className="h-[36px]">
-            {data &&
-              data[0].images.map((image) => {
-                return (
-                  <option key={image} value={image}>
-                    {image}
-                  </option>
-                );
-              })}
+            {productData.images.map((image) => {
+              return (
+                <option key={image} value={image}>
+                  {image}
+                </option>
+              );
+            })}
           </select>
         </div>
       </section>
