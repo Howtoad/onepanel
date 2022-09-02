@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import TokenContext from "./context/TokenContext";
 
 function App() {
-  const [token, setToken] = useState("1234");
+  const [token, setToken] = useState(null);
 
   return (
     <TokenContext.Provider value={{ token, setToken }}>

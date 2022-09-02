@@ -3,8 +3,34 @@ import Button from "../components/Button";
 import Icon from "../components/Icon";
 import Input from "../components/Input";
 import { BsPerson } from "react-icons/bs";
+import TokenContext from "../context/TokenContext";
+import { Navigate } from "react-router-dom";
+import { useContext } from "react";
 
-const Login = () => {
+export default function Login() {
+  const { setToken } = useContext(TokenContext);
+  const navigate = Navigate;
+
+  function submitHandler(event) {
+    event.preventDefault();
+    fetch("http://localhost:3001/auth", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        username: event.target.username.value,
+        password: event.target.password.value,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setToken(data.token);
+        // navigate("/");
+        alert("successful login");
+      });
+  }
+
   const styles = {
     loginButtonCss:
       "text-base text-white bg-opGreen flex leading-7 px-3 py-2 max-w-max mt-9 justify-self-center",
@@ -15,27 +41,29 @@ const Login = () => {
     menuIcon: <BsPerson size={70} className="justify-self-center" />,
   };
   return (
-    <div className="grid bg-opGrayBg max-w-max px-5 pt-4 pb-16 gap-y-7">
+    <div className="grid bg-opGrayBg max-w-max px-5 pt-4 pb-16 gap-y-7 mx-auto mt-14">
       <Icon icon={styles.menuIcon} />
-      <Input
-        label={"Username"}
-        inputCss={styles.inputCss}
-        labelCss={styles.labelCss}
-        pCss={styles.pCss}
-      />
-      <Input
-        label={"Password"}
-        inputCss={styles.inputCss}
-        labelCss={styles.labelCss}
-        pCss={styles.pCss}
-      />
-      <Button
-        css={styles.loginButtonCss}
-        buttonText={"Sign in"}
-        buttonIcon={<BsFillKeyFill size={32} />}
-      />
+      <form onSubmit={submitHandler} className="grid gap-y-7">
+        <Input
+          label={"Username"}
+          inputCss={styles.inputCss}
+          labelCss={styles.labelCss}
+          pCss={styles.pCss}
+          name={"username"}
+        />
+        <Input
+          label={"Password"}
+          inputCss={styles.inputCss}
+          labelCss={styles.labelCss}
+          pCss={styles.pCss}
+          name={"password"}
+        />
+        <Button
+          css={styles.loginButtonCss}
+          buttonText={"Sign in"}
+          buttonIcon={<BsFillKeyFill size={32} />}
+        />
+      </form>
     </div>
   );
-};
-
-export default Login;
+}

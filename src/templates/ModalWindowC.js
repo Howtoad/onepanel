@@ -83,10 +83,11 @@ const ModalWindowC = ({
 
   const styles = {
     labelCss: "text-sm leading-4 capitalize px-1 h-5",
-    valueCss: "text-sm max-w-max leading-4 capitalize px-1",
-    customerCss: "mb-1.5 flex",
+    valueCss:
+      "text-sm max-w-max leading-4 capitalize px-1 text-center text-bold",
+    customerCss: "mb-1.5 flex ml-2 mt-1",
   };
-
+  // text-black text-center text-2xl p-2 text-bold
   return (
     <>
       <motion.section
@@ -116,42 +117,39 @@ const ModalWindowC = ({
         initial="hidden"
         animate={contentControls}
       >
-        <p className="text-black text-center text-2xl p-2 text-bold">
-          {data && (
-            <section>
-              <div className={styles.customerCss}>
-                <BsPerson size={32} />
-              </div>
-              <div className={styles.customerCss}>
-                <Paragraph text={"ID:"} css={styles.labelCss} />
-                <Paragraph text={data.id} css={styles.valueCss} />
-              </div>
-              <div className={styles.customerCss}>
-                <Paragraph text={"Name:"} css={styles.labelCss} />
-                <Paragraph text={data.name} css={styles.valueCss} />
-              </div>
-              <div className={styles.customerCss}>
-                <Paragraph text={"Address:"} css={styles.labelCss} />
-                <Paragraph
-                  text={
-                    data.billingaddress.address +
-                    ", " +
-                    data.billingaddress.city
-                  }
-                  css={styles.valueCss}
-                />
-              </div>
-              <div className={styles.customerCss}>
-                <BsTelephone />
-                <Paragraph text={data.phone} css={styles.valueCss + " pt-1"} />
-              </div>
-              <div className={styles.customerCss}>
-                <MdOutlineEmail />
-                <Paragraph text={data.email} css={styles.valueCss + " pt-1"} />
-              </div>
-            </section>
-          )}
-        </p>
+        {data && (
+          <section>
+            <div className={styles.customerCss}>
+              <BsPerson size={32} />
+            </div>
+            <div className={styles.customerCss}>
+              <Paragraph text={"ID:"} css={styles.labelCss} />
+              <Paragraph text={data.id} css={styles.valueCss} />
+            </div>
+            <div className={styles.customerCss}>
+              <Paragraph text={"Name:"} css={styles.labelCss} />
+              <Paragraph text={data.name} css={styles.valueCss} />
+            </div>
+            <div className={styles.customerCss}>
+              <Paragraph text={"Address:"} css={styles.labelCss} />
+              <Paragraph
+                text={
+                  data.billingaddress.address + ", " + data.billingaddress.city
+                }
+                css={styles.valueCss}
+              />
+            </div>
+            <div className={styles.customerCss}>
+              <BsTelephone />
+              <Paragraph text={data.phone} css={styles.valueCss} />
+            </div>
+            <div className={styles.customerCss}>
+              <MdOutlineEmail />
+              <Paragraph text={data.email} css={styles.valueCss} />
+            </div>
+          </section>
+        )}
+
         <div className="flex p-2 justify-center w-full">
           <MdKeyboardArrowDown
             size={32}
