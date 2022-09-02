@@ -12,9 +12,33 @@ const Product = () => {
     headers: { authorization: "Bearer " + "1234" },
   });
 
+  const addProduct = async function () {
+    fetch("http://localhost:3001/products/", {
+      method: "POST",
+      headers: {
+        authorization: "Bearer " + "1234",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: pName,
+        price: pPrice,
+        discount: pDiscount,
+        description: pDesc,
+        stock: pStock,
+        specs: pSpecs,
+        sizes: pSizes,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("success: ", data);
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+      });
+  };
+
   const updateProduct = async function () {
-    console.log("updating...");
-    console.log(productData);
     fetch("http://localhost:3001/products/" + id, {
       method: "PATCH",
       headers: {
@@ -36,7 +60,7 @@ const Product = () => {
         console.log("success: ", data);
       })
       .catch((error) => {
-        console.log(error);
+        console.log("error: ", error);
       });
   };
 
@@ -206,7 +230,11 @@ const Product = () => {
           </select>
         </div>
       </section>
-      <div onClick={() => updateProduct()}>
+      <div
+        onClick={() => {
+          (id !== "new" && updateProduct()) || addProduct();
+        }}
+      >
         <Button buttonText="SAVE CHANGES" css="m-auto bg-OpGrayBg h-12 w-32" />
       </div>
     </>
