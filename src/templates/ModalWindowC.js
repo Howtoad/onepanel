@@ -3,6 +3,9 @@ import { useEffect, useCallback, useState } from "react";
 import Paragraph from "../components/Paragraph";
 import useFetch from "../customHooks/useFetch";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { BsPerson } from "react-icons/bs";
+import { BsTelephone } from "react-icons/bs";
+import { MdOutlineEmail } from "react-icons/md";
 
 const ModalWindowC = ({
   showModalWindow,
@@ -80,7 +83,7 @@ const ModalWindowC = ({
 
   const styles = {
     labelCss: "text-sm leading-4 capitalize px-1 h-5",
-    valueCss: "text-sm bg-white max-w-max leading-4 capitalize px-1",
+    valueCss: "text-sm max-w-max leading-4 capitalize px-1",
     customerCss: "mb-1.5 flex",
   };
 
@@ -117,24 +120,34 @@ const ModalWindowC = ({
           {data && (
             <section>
               <div className={styles.customerCss}>
-                <Paragraph text={"Ord.Nr"} css={styles.labelCss} />
-                <Paragraph text={data.order_number} css={styles.valueCss} />
+                <BsPerson size={32} />
               </div>
               <div className={styles.customerCss}>
-                <Paragraph text={"Name"} css={styles.labelCss} />
+                <Paragraph text={"ID:"} css={styles.labelCss} />
+                <Paragraph text={data.id} css={styles.valueCss} />
+              </div>
+              <div className={styles.customerCss}>
+                <Paragraph text={"Name:"} css={styles.labelCss} />
                 <Paragraph text={data.name} css={styles.valueCss} />
               </div>
               <div className={styles.customerCss}>
-                <Paragraph text={"Address"} css={styles.labelCss} />
-                <Paragraph text={data.address} css={styles.valueCss} />
+                <Paragraph text={"Address:"} css={styles.labelCss} />
+                <Paragraph
+                  text={
+                    data.billingaddress.address +
+                    ", " +
+                    data.billingaddress.city
+                  }
+                  css={styles.valueCss}
+                />
               </div>
               <div className={styles.customerCss}>
-                <Paragraph text={"Country"} css={styles.labelCss} />
-                <Paragraph text={data.country} css={styles.valueCss} />
+                <BsTelephone />
+                <Paragraph text={data.phone} css={styles.valueCss + " pt-1"} />
               </div>
               <div className={styles.customerCss}>
-                <Paragraph text={"Price"} css={styles.labelCss} />
-                <Paragraph text={data.totalsum} css={styles.valueCss} />
+                <MdOutlineEmail />
+                <Paragraph text={data.email} css={styles.valueCss + " pt-1"} />
               </div>
             </section>
           )}
