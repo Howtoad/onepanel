@@ -12,6 +12,18 @@ const Product = () => {
     headers: { authorization: "Bearer " + "1234" },
   });
 
+  const updateProduct = async function () {
+    console.log("updating...");
+    console.log(productData);
+    fetch("http://localhost:3001/products?id=" + id, {
+      method: "POST",
+      headers: {
+        authorization: "Bearer " + "1234",
+      },
+      body: productData,
+    });
+  };
+
   useEffect(() => {
     data && setPName(data[0].name);
     data && setPPrice(data[0].price);
@@ -180,24 +192,9 @@ const Product = () => {
           </select>
         </div>
       </section>
-      <Button
-        buttonText="SAVE CHANGES"
-        css="m-auto bg-OpGrayBg h-12 w-32"
-        onClick={() =>
-          function () {
-            (async function () {
-              fetch("http://localhost:3001/products?id=" + id, {
-                method: "POST",
-                headers: {
-                  authorization: "Bearer " + "1234",
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(productData),
-              });
-            })();
-          }
-        }
-      />
+      <div onClick={() => updateProduct()}>
+        <Button buttonText="SAVE CHANGES" css="m-auto bg-OpGrayBg h-12 w-32" />
+      </div>
     </>
   );
 };
