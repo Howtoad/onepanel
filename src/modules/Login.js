@@ -26,7 +26,8 @@ export default function Login() {
       .then((res) => res.json())
       .then((data) => {
         setToken(data.token);
-        navigate("/");
+        // navigate("/");
+        alert("successful login");
       });
   }
 
