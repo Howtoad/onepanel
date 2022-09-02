@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useFetch from "../customHooks/useFetch";
 import ProductCard from "../templates/ProductCard";
 
@@ -36,12 +37,14 @@ const ProductList = () => {
               />
             );
           })}
-        <ProductCard
-          key="add"
-          image="./images/akar-icons_circle-plus.png"
-          imageCss="m-auto"
-          cardCss={styles.card}
-        />
+        <Link to="/product/new">
+          <ProductCard
+            key="add"
+            image="./images/akar-icons_circle-plus.png"
+            imageCss="m-auto"
+            cardCss={styles.card}
+          />
+        </Link>
       </section>
     </>
   );
