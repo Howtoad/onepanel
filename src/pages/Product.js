@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHref, useParams } from "react-router-dom";
 import Input from "../components/Input";
 import useFetch from "../customHooks/useFetch";
 import ProductCard from "../templates/ProductCard";
@@ -30,6 +30,25 @@ const Product = () => {
     labelText: "w-32 ml-2",
   };
 
+  const [pName, setPName] = useState();
+  const [pPrice, setPPrice] = useState();
+  const [pDiscount, setPDiscount] = useState();
+  const [pDesc, setPDesc] = useState();
+  const [pStock, setPStock] = useState();
+  const [pSpecs, setPSpecs] = useState();
+  const [pSizes, setPSizes] = useState();
+
+  const productData = (data && data[0]) || {
+    name: pName,
+    description: pDesc,
+    stock: pStock,
+    price: pPrice,
+    discount: pDiscount,
+    specs: pSpecs,
+    sizes: pSizes,
+    images: [""],
+  };
+
   return (
     <>
       {data && (
@@ -54,41 +73,55 @@ const Product = () => {
         />
       )}
       <section className="p-3">
-        <Input
-          label="Name"
-          inputCss={styles.input}
-          labelCss={styles.label}
-          pCss={styles.labelText}
-        />
+        {data && (
+          <Input
+            label="Name"
+            inputCss={styles.input}
+            labelCss={styles.label}
+            pCss={styles.labelText}
+            propValue={pName}
+            setPropValue={setPName}
+          />
+        )}
         <Input
           label="Price"
           inputCss={styles.input}
           labelCss={styles.label}
           pCss={styles.labelText}
+          propValue={pPrice}
+          setPropValue={setPPrice}
         />
         <Input
           label="Discount"
           inputCss={styles.input}
           labelCss={styles.label}
           pCss={styles.labelText}
+          propValue={pDiscount}
+          setPropValue={setPDiscount}
         />
         <Input
           label="Description"
           inputCss={styles.input}
           labelCss={styles.label}
           pCss={styles.labelText}
+          propValue={pDesc}
+          setPropValue={setPDesc}
         />
         <Input
           label="Stock"
           inputCss={styles.input}
           labelCss={styles.label}
           pCss={styles.labelText}
+          propValue={pStock}
+          setPropValue={setPStock}
         />
         <Input
           label="Specs"
           inputCss={styles.input}
           labelCss={styles.label}
           pCss={styles.labelText}
+          propValue={pSpecs}
+          setPropValue={setPSpecs}
         />
         <div className="flex flex-row">
           <div className="w-[136px] h-[36px]">
