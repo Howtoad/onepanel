@@ -3,7 +3,6 @@ import Icon from "../components/Icon";
 import Paragraph from "../components/Paragraph";
 
 const MenuLink = ({ menuName, menuIcon, menuCss, pCss, iconCss, menuLink }) => {
-  console.log(menuLink);
   return (
     <Link className={menuCss} to={menuLink}>
       <Icon icon={menuIcon} css={iconCss} />
