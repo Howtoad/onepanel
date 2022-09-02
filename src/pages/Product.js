@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import useFetch from "../customHooks/useFetch";
 import ProductCard from "../templates/ProductCard";
 import Select from "react-dropdown-select";
+import Button from "../components/Button";
 
 const Product = () => {
   const { id } = useParams();
@@ -179,6 +180,24 @@ const Product = () => {
           </select>
         </div>
       </section>
+      <Button
+        buttonText="SAVE CHANGES"
+        css="m-auto bg-OpGrayBg h-12 w-32"
+        onClick={() =>
+          function () {
+            (async function () {
+              fetch("http://localhost:3001/products?id=" + id, {
+                method: "POST",
+                headers: {
+                  authorization: "Bearer " + "1234",
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(productData),
+              });
+            })();
+          }
+        }
+      />
     </>
   );
 };
