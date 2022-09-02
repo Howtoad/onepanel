@@ -1,5 +1,12 @@
 import { useState } from "react";
-const Input = ({ label, inputCss, labelCss, pCss, name }) => {
+const Input = ({
+  label,
+  inputCss,
+  labelCss,
+  pCss,
+  propValue,
+  setPropValue,
+}) => {
   const [value, setValue] = useState("");
   return (
     <label className={labelCss}>
@@ -7,9 +14,11 @@ const Input = ({ label, inputCss, labelCss, pCss, name }) => {
       <input
         className={inputCss}
         type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        name={name}
+        value={(propValue && propValue) || value}
+        onChange={(e) =>
+          (propValue && setPropValue(e.target.value)) ||
+          setValue(e.target.value)
+        }
       ></input>
     </label>
   );
