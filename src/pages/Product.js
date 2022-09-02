@@ -66,14 +66,14 @@ const Product = () => {
     labelText: "w-32 ml-2",
   };
 
-  const [pName, setPName] = useState(undefined);
-  const [pPrice, setPPrice] = useState(undefined);
-  const [pDiscount, setPDiscount] = useState(undefined);
-  const [pDesc, setPDesc] = useState(undefined);
-  const [pStock, setPStock] = useState(undefined);
-  const [pSpecs, setPSpecs] = useState(undefined);
+  const [pName, setPName] = useState("name");
+  const [pPrice, setPPrice] = useState("price");
+  const [pDiscount, setPDiscount] = useState("0");
+  const [pDesc, setPDesc] = useState("description");
+  const [pStock, setPStock] = useState("stock");
+  const [pSpecs, setPSpecs] = useState("specs");
   const [pSizes, setPSizes] = useState(undefined);
-  const [pImgs, setPImgs] = useState(undefined);
+  const [pImgs, setPImgs] = useState([]);
 
   const productData = (data && data[0] && data[0]) || {
     name: pName,
@@ -83,9 +83,8 @@ const Product = () => {
     discount: pDiscount,
     specs: pSpecs,
     sizes: pSizes,
-    images: [""],
+    images: pImgs,
   };
-  console.log(productData);
 
   return (
     <>
@@ -113,16 +112,14 @@ const Product = () => {
       />
 
       <section className="p-3">
-        {data && data[0] && (
-          <Input
-            label="Name"
-            inputCss={styles.input}
-            labelCss={styles.label}
-            pCss={styles.labelText}
-            propValue={pName}
-            setPropValue={setPName}
-          />
-        )}
+        <Input
+          label="Name"
+          inputCss={styles.input}
+          labelCss={styles.label}
+          pCss={styles.labelText}
+          propValue={pName}
+          setPropValue={setPName}
+        />
         <Input
           label="Price"
           inputCss={styles.input}
