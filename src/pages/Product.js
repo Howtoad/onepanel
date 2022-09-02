@@ -15,13 +15,29 @@ const Product = () => {
   const updateProduct = async function () {
     console.log("updating...");
     console.log(productData);
-    fetch("http://localhost:3001/products?id=" + id, {
-      method: "POST",
+    fetch("http://localhost:3001/products/" + id, {
+      method: "PATCH",
       headers: {
         authorization: "Bearer " + "1234",
+        "Content-Type": "application/json",
       },
-      body: productData,
-    });
+      body: JSON.stringify({
+        name: pName,
+        price: pPrice,
+        discount: pDiscount,
+        description: pDesc,
+        stock: pStock,
+        specs: pSpecs,
+        sizes: pSizes,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("success: ", data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -56,7 +72,6 @@ const Product = () => {
   const [pStock, setPStock] = useState(undefined);
   const [pSpecs, setPSpecs] = useState(undefined);
   const [pSizes, setPSizes] = useState(undefined);
-  console.log(pSizes);
 
   const productData = (data && data[0]) || {
     name: pName,
