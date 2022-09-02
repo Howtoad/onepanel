@@ -16,6 +16,16 @@ const ProductList = () => {
   return (
     <>
       <section className="grid grid-cols-2 p-1.5 gap-y-2 gap-x-1 mb-20">
+        {data && (
+          <Link to="/product/new">
+            <ProductCard
+              key="add"
+              image="./images/akar-icons_circle-plus.png"
+              imageCss="m-auto"
+              cardCss={styles.card + " h-full"}
+            />
+          </Link>
+        )}
         {data &&
           data.map((product) => {
             return (
@@ -35,14 +45,6 @@ const ProductList = () => {
               />
             );
           })}
-        <Link to="/product/new">
-          <ProductCard
-            key="add"
-            image="./images/akar-icons_circle-plus.png"
-            imageCss="m-auto"
-            cardCss={styles.card}
-          />
-        </Link>
       </section>
     </>
   );

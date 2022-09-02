@@ -16,11 +16,14 @@ function App() {
 
   useEffect(() => {
     token && setIsLoggedIn(true);
+    console.log(isLoggedIn);
   }, []);
 
   return (
     <>
-      {isLoggedIn && <Navigate to="/login" replace={true} />}
+      {isLoggedIn === false && isLoggedIn === undefined && (
+        <Navigate to="/login" replace={true} />
+      )}
       <TokenContext.Provider value={{ token, setToken }}>
         <div className="App">
           <Nav />

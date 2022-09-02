@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 import { useContext } from "react";
 
 export default function Login() {
-  const { setToken } = useContext(TokenContext);
+  const { token, setToken } = useContext(TokenContext);
   const navigate = Navigate;
 
   function submitHandler(event) {
@@ -19,8 +19,8 @@ export default function Login() {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        username: event.target.username.value,
-        password: event.target.password.value,
+        username: event.target[0].value,
+        password: event.target[1].value,
       }),
     })
       .then((res) => res.json())
@@ -30,6 +30,8 @@ export default function Login() {
         alert("successful login");
       });
   }
+
+  console.log(token);
 
   const styles = {
     loginButtonCss:
@@ -41,29 +43,32 @@ export default function Login() {
     menuIcon: <BsPerson size={70} className="justify-self-center" />,
   };
   return (
-    <div className="grid bg-opGrayBg max-w-max px-5 pt-4 pb-16 gap-y-7 mx-auto mt-14">
-      <Icon icon={styles.menuIcon} />
-      <form onSubmit={submitHandler} className="grid gap-y-7">
-        <Input
-          label={"Username"}
-          inputCss={styles.inputCss}
-          labelCss={styles.labelCss}
-          pCss={styles.pCss}
-          name={"username"}
-        />
-        <Input
-          label={"Password"}
-          inputCss={styles.inputCss}
-          labelCss={styles.labelCss}
-          pCss={styles.pCss}
-          name={"password"}
-        />
-        <Button
-          css={styles.loginButtonCss}
-          buttonText={"Sign in"}
-          buttonIcon={<BsFillKeyFill size={32} />}
-        />
-      </form>
-    </div>
+    <>
+      {token && <Navigate to="/" replace={true} />}
+      <div className="grid bg-opGrayBg max-w-max px-5 pt-4 pb-16 gap-y-7 mx-auto mt-14">
+        <Icon icon={styles.menuIcon} />
+        <form onSubmit={submitHandler} className="grid gap-y-7">
+          <Input
+            label={"Username"}
+            inputCss={styles.inputCss}
+            labelCss={styles.labelCss}
+            pCss={styles.pCss}
+            name={"username"}
+          />
+          <Input
+            label={"Password"}
+            inputCss={styles.inputCss}
+            labelCss={styles.labelCss}
+            pCss={styles.pCss}
+            name={"password"}
+          />
+          <Button
+            css={styles.loginButtonCss}
+            buttonText={"Sign in"}
+            buttonIcon={<BsFillKeyFill size={32} />}
+          />
+        </form>
+      </div>
+    </>
   );
 }
