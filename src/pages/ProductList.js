@@ -14,6 +14,7 @@ const ProductList = () => {
   const { data } = useFetch("http://localhost:3001/products", {
     headers: { authorization: "Bearer " + "1234" },
   });
+  console.log(data);
 
   return (
     <>

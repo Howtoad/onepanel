@@ -27,6 +27,7 @@ const Product = () => {
         stock: pStock,
         specs: pSpecs,
         sizes: pSizes,
+        images: pImgs,
       }),
     })
       .then((response) => response.json())
@@ -53,6 +54,7 @@ const Product = () => {
         stock: pStock,
         specs: pSpecs,
         sizes: pSizes,
+        images: pImgs,
       }),
     })
       .then((response) => response.json())
