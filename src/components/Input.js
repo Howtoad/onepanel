@@ -1,5 +1,5 @@
 import { useState } from "react";
-const Input = ({ label, inputCss, labelCss, pCss }) => {
+const Input = ({ label, inputCss, labelCss, pCss, name }) => {
   const [value, setValue] = useState("");
   return (
     <label className={labelCss}>
@@ -9,6 +9,7 @@ const Input = ({ label, inputCss, labelCss, pCss }) => {
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        name={name}
       ></input>
     </label>
   );
