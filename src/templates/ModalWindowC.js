@@ -3,8 +3,11 @@ import { useEffect, useCallback, useState } from "react";
 import Paragraph from "../components/Paragraph";
 import useFetch from "../customHooks/useFetch";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { BsPerson } from "react-icons/bs";
+import { BsTelephone } from "react-icons/bs";
+import { MdOutlineEmail } from "react-icons/md";
 
-const ModalWindow = ({
+const ModalWindowC = ({
   showModalWindow,
   setShowModalWindow,
   modalContainerAnimation,
@@ -80,8 +83,8 @@ const ModalWindow = ({
 
   const styles = {
     labelCss: "text-sm leading-4 capitalize px-1 h-5",
-    valueCss: "text-sm bg-white max-w-max leading-4 capitalize px-1",
-    productCss: "mb-1.5 flex",
+    valueCss: "text-sm max-w-max leading-4 capitalize px-1",
+    customerCss: "mb-1.5 flex",
   };
 
   return (
@@ -98,6 +101,7 @@ const ModalWindow = ({
         initial="hidden"
         animate={containerControls}
         onClick={(e) => {
+          console.log(e.target);
           e.target === e.currentTarget && setShowModalWindow(false);
         }}
       ></motion.section>
@@ -115,40 +119,35 @@ const ModalWindow = ({
         <p className="text-black text-center text-2xl p-2 text-bold">
           {data && (
             <section>
-              <div className={styles.productCss}>
-                <Paragraph text={"Ord.Nr"} css={styles.labelCss} />
-                <Paragraph text={data.order_number} css={styles.valueCss} />
+              <div className={styles.customerCss}>
+                <BsPerson size={32} />
               </div>
-              <div className={styles.productCss}>
-                <Paragraph text={"Name"} css={styles.labelCss} />
+              <div className={styles.customerCss}>
+                <Paragraph text={"ID:"} css={styles.labelCss} />
+                <Paragraph text={data.id} css={styles.valueCss} />
+              </div>
+              <div className={styles.customerCss}>
+                <Paragraph text={"Name:"} css={styles.labelCss} />
                 <Paragraph text={data.name} css={styles.valueCss} />
               </div>
-              <div className={styles.productCss}>
-                <Paragraph text={"Address"} css={styles.labelCss} />
-                <Paragraph text={data.address} css={styles.valueCss} />
+              <div className={styles.customerCss}>
+                <Paragraph text={"Address:"} css={styles.labelCss} />
+                <Paragraph
+                  text={
+                    data.billingaddress.address +
+                    ", " +
+                    data.billingaddress.city
+                  }
+                  css={styles.valueCss}
+                />
               </div>
-              <div className={styles.productCss}>
-                <Paragraph text={"Country"} css={styles.labelCss} />
-                <Paragraph text={data.country} css={styles.valueCss} />
+              <div className={styles.customerCss}>
+                <BsTelephone />
+                <Paragraph text={data.phone} css={styles.valueCss + " pt-1"} />
               </div>
-              {data.products.map((product) => {
-                return (
-                  <div className={styles.productCss}>
-                    <Paragraph text={"Product"} css={styles.labelCss} />
-                    <Paragraph
-                      text={product.productName}
-                      css={styles.valueCss}
-                    />
-                    <Paragraph
-                      text={"x" + product.productAmount}
-                      css={styles.labelCss}
-                    />
-                  </div>
-                );
-              })}
-              <div className={styles.productCss}>
-                <Paragraph text={"Price"} css={styles.labelCss} />
-                <Paragraph text={data.totalsum} css={styles.valueCss} />
+              <div className={styles.customerCss}>
+                <MdOutlineEmail />
+                <Paragraph text={data.email} css={styles.valueCss + " pt-1"} />
               </div>
             </section>
           )}
@@ -164,4 +163,4 @@ const ModalWindow = ({
   );
 };
 
-export default ModalWindow;
+export default ModalWindowC;
