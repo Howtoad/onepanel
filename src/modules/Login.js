@@ -31,8 +31,6 @@ export default function Login() {
       });
   }
 
-  console.log(token);
-
   const styles = {
     loginButtonCss:
       "text-base text-white bg-opGreen flex leading-7 px-3 py-2 max-w-max mt-9 justify-self-center",

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Nav from "./templates/Nav";
 import Costumers from "./pages/Costumers";
@@ -12,18 +12,14 @@ import TokenContext from "./context/TokenContext";
 
 function App() {
   const [token, setToken] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState();
+  let navigate = useNavigate();
+  let location = useLocation();
 
   useEffect(() => {
-    token && setIsLoggedIn(true);
-    console.log(isLoggedIn);
-  }, []);
-
+    !token && navigate("/login", { replace: true });
+  }, [location]);
   return (
     <>
-      {isLoggedIn === false && isLoggedIn === undefined && (
-        <Navigate to="/login" replace={true} />
-      )}
       <TokenContext.Provider value={{ token, setToken }}>
         <div className="App">
           <Nav />
