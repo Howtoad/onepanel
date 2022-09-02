@@ -57,20 +57,23 @@ const ProductCard = ({
           {!editCard && (
             <>
               <div className={exampleCardCss}>
-                {(productDiscount !== "0" && productDiscount && (
-                  <>
-                    <Paragraph
-                      text={"£" + productPrice}
-                      css={priceCss + " " + discountCss}
-                    />
-                    <Paragraph
-                      text={productDiscount && "£" + productDiscount}
-                      css={priceCss}
-                    />
-                  </>
-                )) || (
+                {(productDiscount !== "0" &&
+                  productDiscount &&
+                  productDiscount !== null &&
+                  productDiscount !== "" && (
+                    <>
+                      <Paragraph
+                        text={productPrice && "£" + productPrice}
+                        css={priceCss + " " + discountCss}
+                      />
+                      <Paragraph
+                        text={productDiscount && "£" + productDiscount}
+                        css={priceCss}
+                      />
+                    </>
+                  )) || (
                   <Paragraph
-                    text={productDiscount && "£" + productPrice}
+                    text={productPrice && "£" + productPrice}
                     css={priceCss}
                   />
                 )}
