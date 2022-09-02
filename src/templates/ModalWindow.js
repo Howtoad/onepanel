@@ -81,7 +81,7 @@ const ModalWindow = ({
   const styles = {
     labelCss: "text-sm leading-4 capitalize px-1 h-5",
     valueCss: "text-sm bg-white max-w-max leading-4 capitalize px-1",
-    productCss: "mb-1.5 flex",
+    productCss: "mb-1.5 flex ml-2 mt-2",
   };
 
   return (
@@ -112,47 +112,43 @@ const ModalWindow = ({
         initial="hidden"
         animate={contentControls}
       >
-        <p className="text-black text-center text-2xl p-2 text-bold">
-          {data && (
-            <section>
-              <div className={styles.productCss}>
-                <Paragraph text={"Ord.Nr"} css={styles.labelCss} />
-                <Paragraph text={data.order_number} css={styles.valueCss} />
-              </div>
-              <div className={styles.productCss}>
-                <Paragraph text={"Name"} css={styles.labelCss} />
-                <Paragraph text={data.name} css={styles.valueCss} />
-              </div>
-              <div className={styles.productCss}>
-                <Paragraph text={"Address"} css={styles.labelCss} />
-                <Paragraph text={data.address} css={styles.valueCss} />
-              </div>
-              <div className={styles.productCss}>
-                <Paragraph text={"Country"} css={styles.labelCss} />
-                <Paragraph text={data.country} css={styles.valueCss} />
-              </div>
-              {data.products.map((product) => {
-                return (
-                  <div className={styles.productCss}>
-                    <Paragraph text={"Product"} css={styles.labelCss} />
-                    <Paragraph
-                      text={product.productName}
-                      css={styles.valueCss}
-                    />
-                    <Paragraph
-                      text={"x" + product.productAmount}
-                      css={styles.labelCss}
-                    />
-                  </div>
-                );
-              })}
-              <div className={styles.productCss}>
-                <Paragraph text={"Price"} css={styles.labelCss} />
-                <Paragraph text={data.totalsum} css={styles.valueCss} />
-              </div>
-            </section>
-          )}
-        </p>
+        {data && (
+          <section>
+            <div className={styles.productCss}>
+              <Paragraph text={"Ord.Nr"} css={styles.labelCss} />
+              <Paragraph text={data.order_number} css={styles.valueCss} />
+            </div>
+            <div className={styles.productCss}>
+              <Paragraph text={"Name"} css={styles.labelCss} />
+              <Paragraph text={data.name} css={styles.valueCss} />
+            </div>
+            <div className={styles.productCss}>
+              <Paragraph text={"Address"} css={styles.labelCss} />
+              <Paragraph text={data.address} css={styles.valueCss} />
+            </div>
+            <div className={styles.productCss}>
+              <Paragraph text={"Country"} css={styles.labelCss} />
+              <Paragraph text={data.country} css={styles.valueCss} />
+            </div>
+            {data.products.map((product) => {
+              return (
+                <div className={styles.productCss}>
+                  <Paragraph text={"Product"} css={styles.labelCss} />
+                  <Paragraph text={product.productName} css={styles.valueCss} />
+                  <Paragraph
+                    text={"x" + product.productAmount}
+                    css={styles.labelCss}
+                  />
+                </div>
+              );
+            })}
+            <div className={styles.productCss}>
+              <Paragraph text={"Price"} css={styles.labelCss} />
+              <Paragraph text={data.totalsum} css={styles.valueCss} />
+            </div>
+          </section>
+        )}
+
         <div className="flex p-2 justify-center w-full">
           <MdKeyboardArrowDown
             size={32}
