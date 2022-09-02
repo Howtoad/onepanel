@@ -15,9 +15,7 @@ const ModalWindowC = ({
   alertdialog,
   keyId,
 }) => {
-  const { data } = useFetch("http://localhost:3001/" + keyId, {
-    headers: { authorization: "Bearer " + "1234" },
-  });
+  const { data } = useFetch("http://localhost:3001/" + keyId);
 
   //default animation
   const ContainerAnimation = {

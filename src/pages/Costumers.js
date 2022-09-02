@@ -2,9 +2,7 @@ import useFetch from "../customHooks/useFetch";
 import Customer from "../modules/Customer";
 
 const Costumers = () => {
-  const { data } = useFetch("http://localhost:3001/customers", {
-    headers: { authorization: "Bearer " + "1234" },
-  });
+  const { data } = useFetch("http://localhost:3001/customers");
   return (
     <section>
       {data &&

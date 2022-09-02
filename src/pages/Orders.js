@@ -2,9 +2,7 @@ import useFetch from "../customHooks/useFetch";
 import Order from "../modules/Order";
 
 const Orders = () => {
-  const { data } = useFetch("http://localhost:3001/orders", {
-    headers: { authorization: "Bearer " + "1234" },
-  });
+  const { data } = useFetch("http://localhost:3001/orders");
 
   return (
     <section className="grid gap-y-2">

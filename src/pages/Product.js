@@ -8,9 +8,7 @@ import Button from "../components/Button";
 
 const Product = () => {
   const { id } = useParams();
-  const { data } = useFetch("http://localhost:3001/products?id=" + id, {
-    headers: { authorization: "Bearer " + "1234" },
-  });
+  const { data } = useFetch("http://localhost:3001/products?id=1");
 
   const addProduct = async function () {
     fetch("http://localhost:3001/products/", {
