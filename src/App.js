@@ -1,6 +1,6 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Nav from "./templates/Nav";
 import Costumers from "./pages/Costumers";
 import Orders from "./pages/Orders";
@@ -12,21 +12,29 @@ import TokenContext from "./context/TokenContext";
 
 function App() {
   const [token, setToken] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState();
+
+  useEffect(() => {
+    token && setIsLoggedIn(true);
+  }, []);
 
   return (
-    <TokenContext.Provider value={{ token, setToken }}>
-      <div className="App">
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/productList" element={<ProductList />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/costumers" element={<Costumers />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
-    </TokenContext.Provider>
+    <>
+      {isLoggedIn && <Navigate to="/login" replace={true} />}
+      <TokenContext.Provider value={{ token, setToken }}>
+        <div className="App">
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/productList" element={<ProductList />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/costumers" element={<Costumers />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </TokenContext.Provider>
+    </>
   );
 }
 
