@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHref, useParams } from "react-router-dom";
 import Input from "../components/Input";
 import useFetch from "../customHooks/useFetch";
@@ -11,9 +11,15 @@ const Product = () => {
     headers: { authorization: "Bearer " + "1234" },
   });
 
-  const [values, setValues] = useState("");
-  console.log(values);
-  console.log(data);
+  useEffect(() => {
+    data && setPName(data[0].name);
+    data && setPPrice(data[0].price);
+    data && setPDiscount(data[0].discount);
+    data && setPDesc(data[0].description);
+    data && setPStock(data[0].stock);
+    data && setPSpecs(data[0].specs);
+    data && setPSizes(data[0].sizes);
+  }, [data]);
 
   const styles = {
     card: "bg-opGrayBg p-1.5 border-solid border-black border w-44 flex flex-col min-h-[300px] mx-auto mt-12",
@@ -30,13 +36,14 @@ const Product = () => {
     labelText: "w-32 ml-2",
   };
 
-  const [pName, setPName] = useState();
-  const [pPrice, setPPrice] = useState();
-  const [pDiscount, setPDiscount] = useState();
-  const [pDesc, setPDesc] = useState();
-  const [pStock, setPStock] = useState();
-  const [pSpecs, setPSpecs] = useState();
-  const [pSizes, setPSizes] = useState();
+  const [pName, setPName] = useState(undefined);
+  const [pPrice, setPPrice] = useState(undefined);
+  const [pDiscount, setPDiscount] = useState(undefined);
+  const [pDesc, setPDesc] = useState(undefined);
+  const [pStock, setPStock] = useState(undefined);
+  const [pSpecs, setPSpecs] = useState(undefined);
+  const [pSizes, setPSizes] = useState(undefined);
+  console.log(pSizes);
 
   const productData = (data && data[0]) || {
     name: pName,
@@ -51,27 +58,29 @@ const Product = () => {
 
   return (
     <>
-      {data && (
-        <ProductCard
-          key={data[0].id}
-          image={"../images/product_" + data[0].id + "/" + data[0].images[0]}
-          headingText={data[0].name}
-          paragraphText={data[0].description}
-          productID={data[0].id}
-          imageCss={styles.image}
-          headingCss={styles.heading}
-          paragraphCss={styles.paragraph}
-          cardCss={styles.card}
-          productPrice={data[0].price}
-          productDiscount={data[0].discount}
-          priceCss={styles.price}
-          discountCss={styles.discount}
-          exampleCardCss={styles.exampleCard}
-          buttonCss={styles.button}
-          buttonText="Add to cart"
-          buttonTextCss={styles.buttonText}
-        />
-      )}
+      <ProductCard
+        key={productData.id && productData.id}
+        image={
+          productData.id &&
+          "../images/product_" + productData.id + "/" + productData.images[0]
+        }
+        headingText={pName}
+        paragraphText={pDesc}
+        productID={productData.id}
+        imageCss={styles.image}
+        headingCss={styles.heading}
+        paragraphCss={styles.paragraph}
+        cardCss={styles.card}
+        productPrice={pPrice}
+        productDiscount={pDiscount}
+        priceCss={styles.price}
+        discountCss={styles.discount}
+        exampleCardCss={styles.exampleCard}
+        buttonCss={styles.button}
+        buttonText="Add to cart"
+        buttonTextCss={styles.buttonText}
+      />
+
       <section className="p-3">
         {data && (
           <Input
@@ -143,7 +152,7 @@ const Product = () => {
                   size: "XXL",
                 },
               ]}
-              onChange={(values) => setValues(values)}
+              onChange={(pSizes) => setPSizes(pSizes)}
               multi={true}
               dropdownPosition="bottom"
               direction="lrt"
