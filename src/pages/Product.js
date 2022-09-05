@@ -65,14 +65,14 @@ const Product = () => {
   };
 
   useEffect(() => {
-    data && setPName(data.name);
-    data && setPPrice(data.price);
-    data && setPDiscount(data.discount);
-    data && setPDesc(data.description);
-    data && setPStock(data.stock);
-    data && setPSpecs(data.specs);
-    data && setPSizes(data.sizes);
-    data && setPImgs(data.images);
+    data && data.name && setPName(data.name);
+    data && data.name && setPPrice(data.price);
+    data && data.name && setPDiscount(data.discount);
+    data && data.name && setPDesc(data.description);
+    data && data.name && setPStock(data.stock);
+    data && data.name && setPSpecs(data.specs);
+    data && data.name && setPSizes(data.sizes);
+    data && data.name && setPImgs(data.images);
   }, [data]);
 
   const styles = {
