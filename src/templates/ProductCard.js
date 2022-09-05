@@ -44,7 +44,6 @@ const ProductCard = ({
         console.log("error: ", error);
       });
   };
-  console.log(image);
 
   return (
     <>
