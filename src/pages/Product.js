@@ -8,7 +8,7 @@ import Button from "../components/Button";
 
 const Product = () => {
   const { id } = useParams();
-  const { data } = useFetch("http://localhost:3001/products?id=1");
+  const { data } = useFetch("http://localhost:3001/products/" + id);
 
   const addProduct = async function () {
     fetch("http://localhost:3001/products/", {
@@ -65,14 +65,14 @@ const Product = () => {
   };
 
   useEffect(() => {
-    data && data[0] && setPName(data[0].name);
-    data && data[0] && setPPrice(data[0].price);
-    data && data[0] && setPDiscount(data[0].discount);
-    data && data[0] && setPDesc(data[0].description);
-    data && data[0] && setPStock(data[0].stock);
-    data && data[0] && setPSpecs(data[0].specs);
-    data && data[0] && setPSizes(data[0].sizes);
-    data && data[0] && setPImgs(data[0].images);
+    data && setPName(data.name);
+    data && setPPrice(data.price);
+    data && setPDiscount(data.discount);
+    data && setPDesc(data.description);
+    data && setPStock(data.stock);
+    data && setPSpecs(data.specs);
+    data && setPSizes(data.sizes);
+    data && setPImgs(data.images);
   }, [data]);
 
   const styles = {
@@ -113,10 +113,10 @@ const Product = () => {
   return (
     <>
       <ProductCard
-        key={productData.id && productData.id}
+        key={productData.name && id}
         image={
-          productData.id &&
-          "../images/product_" + productData.id + "/" + productData.images[0]
+          productData.name &&
+          "../images/product_" + id + "/" + productData.images[0]
         }
         headingText={pName}
         paragraphText={pDesc}
