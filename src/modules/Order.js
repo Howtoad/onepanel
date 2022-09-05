@@ -46,7 +46,7 @@ const Order = ({ price, country, name, address, orderid, keyId }) => {
         <Paragraph text={name} css={styles.valueCss} />
 
         <Paragraph text={"address"} css={styles.labelCss} />
-        <Paragraph text={address} css={styles.valueCss} />
+        <Paragraph text={address} css={styles.valueCss + " "} />
       </div>
       <div className="justify-self-center">
         <MdKeyboardArrowDown

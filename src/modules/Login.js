@@ -9,7 +9,7 @@ import { useContext } from "react";
 
 export default function Login() {
   const { token, setToken } = useContext(TokenContext);
-  const navigate = Navigate;
+  /* const navigate = Navigate; */
 
   function submitHandler(event) {
     event.preventDefault();

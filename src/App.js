@@ -15,8 +15,11 @@ function App() {
   let navigate = useNavigate();
   let location = useLocation();
 
+  // eslint-disable-next-line
   useEffect(() => {
+    // eslint-disable-next-line
     !token && navigate("/login", { replace: true });
+    // eslint-disable-next-line
   }, [location]);
   return (
     <>
